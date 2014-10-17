@@ -69,22 +69,18 @@ function onPoseEdge(pose, edge)
         pose = conditionallySwapWave(pose)
 
         if pose == "waveIn" and edge == "on" then
-            myo.vibrate("short")
             enabled = false
             build()
         end
         if pose == "waveOut" and edge == "on" then
-            myo.vibrate("short")
             enabled = false
             clean()
         end
         if pose == "fingersSpread" then
-            myo.vibrate("short")
             enabled = false
             run()
         end
         if pose == "fist" and edge == "on" then
-            myo.vibrate("short")
             enabled = false
             stop()
         end
@@ -98,6 +94,8 @@ function onPeriodic()
    if enabled then
         if myo.getTimeMilliseconds() - enabledSince > ENABLED_TIMEOUT then
             enabled = false
+            -- Vibrate once on lock
+            myo.vibrate("short")
         end
     end
 end
