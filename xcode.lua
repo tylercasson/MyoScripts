@@ -67,19 +67,15 @@ function onPoseEdge(pose, edge)
 
     if enabled then
         if pose == "waveIn" and edge == "on" then
-            enabled = false
             build()
         end
         if pose == "waveOut" and edge == "on" then
-            enabled = false
             clean()
         end
         if pose == "fingersSpread" then
-            enabled = false
             run()
         end
         if pose == "fist" and edge == "on" then
-            enabled = false
             stop()
         end
     end
