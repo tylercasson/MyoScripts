@@ -98,7 +98,7 @@ function onForegroundWindowChange(app, title)
     local wantActive = false
     activeApp = ""
     if platform == "MacOS" then
-        wantActive = string.match(app, "com.apple.dt.Xcode")
+        wantActive = string.match(app, "com.apple.-%a-.-Xcode")
         activeApp = "Xcode"
     end
     return wantActive
