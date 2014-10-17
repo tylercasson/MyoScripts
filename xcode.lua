@@ -66,8 +66,6 @@ function onPoseEdge(pose, edge)
     end
 
     if enabled then
-        pose = conditionallySwapWave(pose)
-
         if pose == "waveIn" and edge == "on" then
             enabled = false
             build()
