@@ -131,8 +131,39 @@ function onPeriodic()
     end
 end
 
+ingoreInApps = {
+    ["app"] = {
+        "com.apple.iTunes",
+        "com.apple.iWork.Keynote",
+        "VLC"
+    },
+    ["title"] = {
+        "Netflix"
+    }
+}
+
 function onForegroundWindowChange(app, title)
     local wantActive = true
+    activeApp = ""
+    if platform == "MacOS" then
+        for key, list in pairs(ingoreInApps) do
+            if key == "app" then
+                for index, name in pairs(list) do
+                    if string.match(app, name) then
+                        wantActive = false
+                        return wantActive
+                    end
+                end
+            elseif key == "title" then
+                for index, name in pairs(list) do
+                    if string.match(title, name) then
+                        wantActive = false
+                        return wantActive
+                    end
+                end
+            end
+        end
+    end
     return wantActive
 end
 
