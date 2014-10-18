@@ -136,7 +136,8 @@ ingoreInApps = {
         "com.apple.iTunes",
         "com.apple.iWork.Keynote",
         "org.videolan.vlc",
-        "com.adobe.Reader"
+        "com.adobe.Reader",
+        "com.microsoft.Powerpoint"
     },
     ["title"] = {
         "Netflix"
