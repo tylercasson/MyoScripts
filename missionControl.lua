@@ -135,7 +135,7 @@ ingoreInApps = {
     ["app"] = {
         "com.apple.iTunes",
         "com.apple.iWork.Keynote",
-        "VLC"
+        "org.videolan.vlc"
     },
     ["title"] = {
         "Netflix"
@@ -143,6 +143,7 @@ ingoreInApps = {
 }
 
 function onForegroundWindowChange(app, title)
+    myo.debug(app .. " — " .. title .. "\n")
     local wantActive = true
     activeApp = ""
     if platform == "MacOS" then
