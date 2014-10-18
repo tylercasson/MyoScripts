@@ -6,7 +6,7 @@ Various scripts for use with Myo
 
 ##Instructions
 
-###Xcode
+###`xcode.lua`
 
 - Build: Wave In
 - Run: Spread Fingers
@@ -14,7 +14,7 @@ Various scripts for use with Myo
 - Clean: Wave Out
 
 
-###Mission Control
+###`missionControl.lua`
 
 - Global
     - Spread Fingers to toggle Mission Control
