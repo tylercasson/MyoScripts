@@ -72,7 +72,7 @@ function onPoseEdge(pose, edge)
         if pose == "waveOut" and edge == "on" then
             clean()
         end
-        if pose == "fingersSpread" then
+        if pose == "fingersSpread" and edge == "on" then
             run()
         end
         if pose == "fist" and edge == "on" then
