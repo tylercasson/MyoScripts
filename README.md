@@ -40,6 +40,6 @@ Various scripts for use with Myo
 
 - Spread Fingers to toggle play and pause
 
-- Make a "thumbs up" fist and release to give the current song a thumbs up
+- Make a "thumbs up" fist to give the current song a thumbs up
 
-- Make a "thumbs up" fist, rotate into a "thumbs down" fist, and release to give the current song a thumbs down
+- Make a "thumbs down" fist to give the current song a thumbs down
