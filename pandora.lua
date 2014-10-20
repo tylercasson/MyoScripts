@@ -98,7 +98,6 @@ function onPoseEdge(pose, edge)
             if enabled and edge == "on" then
                 volumeInitiated = now
                 volumeTimeout = VOLUME_CONTROL_TIMEOUT
-                extendUnlock()
             elseif edge == "off" then
                 volumeTimeout = nil
             end
@@ -110,7 +109,6 @@ function onPoseEdge(pose, edge)
 
         if pose == "fist" and edge == "on" then
             savedRoll = degreesForRadians(currentRoll)
-            extendUnlock()
         elseif pose == "fist" and edge == "off" then
             difference = degreesForRadians(currentRoll) - savedRoll
             if difference >= -10 then
@@ -118,8 +116,8 @@ function onPoseEdge(pose, edge)
             elseif difference <= -20 then
                 thumbsDown()
             end
-            extendUnlock()
         end
+        extendUnlock()
     end
 end
 
