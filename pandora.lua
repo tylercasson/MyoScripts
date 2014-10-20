@@ -111,6 +111,9 @@ function onPoseEdge(pose, edge)
             savedRoll = degreesForRadians(currentRoll)
         elseif pose == "fist" and edge == "off" then
             difference = degreesForRadians(currentRoll) - savedRoll
+            if myo.getArm() == "left" then
+                difference = -difference
+            end
             if difference >= -10 then
                 thumbsUp()
             elseif difference <= -20 then
