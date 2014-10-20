@@ -29,3 +29,17 @@ Various scripts for use with Myo
 - Application Windows:
     - Wave left to highlight the previous window
     - Wave right to highlight the next window
+
+
+###`pandora.lua`
+
+- Wave In to skip to the next song
+
+- Hold a Wave Out gesture and rotate arm to adjust volume.
+    - Tip: If you pinch your fingers together while performing this gesture as if you were grabbing a volume knob or something, this might make a little more sense and feel more natural
+
+- Spread Fingers to toggle play and pause
+
+- Make a "thumbs up" fist and release to give the current song a thumbs up
+
+- Make a "thumbs up" fist, rotate into a "thumbs down" fist, and release to give the current song a thumbs down
