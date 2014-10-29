@@ -68,6 +68,11 @@ function extendUnlock()
     enabledSince = myo.getTimeMilliseconds()
 end
 
+function lock()
+    enabled = false
+    myo.vibrate("short")
+end
+
 
 -- Triggers
 
@@ -89,6 +94,7 @@ function onPoseEdge(pose, edge)
     if enabled then
         if pose == "waveIn" and edge == "on" then
             nextSong()
+            extendUnlock()
         end
 
         if pose == "waveOut" then
@@ -100,10 +106,12 @@ function onPoseEdge(pose, edge)
             elseif edge == "off" then
                 volumeTimeout = nil
             end
+            extendUnlock()
         end
 
         if pose == "fingersSpread" and edge == "on" then
             togglePlayPause()
+            extendUnlock()
         end
 
         if pose == "fist" and edge == "on" then
@@ -126,7 +134,6 @@ function onPoseEdge(pose, edge)
                 thumbsDown()
             end
         end
-        extendUnlock()
     end
 end
 
@@ -145,7 +152,7 @@ currentXDirection = ""
 rolls = {}
 
 -- Maximum number of roll readings to store before dumping 90%
-maxDataPoints = 50000
+maxDataPoints = 5000
 
 collectData = myo.getTimeMilliseconds()
 
@@ -200,9 +207,7 @@ function onPeriodic()
 
     if enabled then
         if myo.getTimeMilliseconds() - enabledSince > ENABLED_TIMEOUT then
-            enabled = false
-            -- Vibrate once on lock
-            myo.vibrate("short")
+            lock()
         end
     end
 end
@@ -223,7 +228,10 @@ end
 
 function onActiveChange(isActive)
     if not isActive then
-        enabled = false
+        if enabled then
+            enabled = false
+            lock()
+        end
     end
 end
 
@@ -333,7 +341,7 @@ firstQuartile = function(ns)
     local copy = slice(ns, 1, length(ns) / 2)
     if oType == "table" then
         if length(ns) % 2 == 0 then
-            table.insert(copy, median(copy))
+            table.insert(copy, median(ns))
             return median(copy)
         else
             copy = slice(ns, 1, length(ns) / 2)
@@ -348,7 +356,7 @@ thirdQuartile = function(ns)
     local copy = slice(ns, length(ns) / 2, length(ns))
     if oType == "table" then
         if length(ns) % 2 == 0 then
-            table.insert(copy, median(copy))
+            table.insert(copy, median(ns))
             return median(copy)
         else
             copy = slice(ns, length(copy) / 2, length(copy))
