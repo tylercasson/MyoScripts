@@ -50,6 +50,11 @@ function extendUnlock()
     enabledSince = myo.getTimeMilliseconds()
 end
 
+function lock()
+    enabled = false
+    myo.vibrate("short")
+end
+
 
 -- Triggers
 
@@ -85,7 +90,7 @@ end
 ENABLED_TIMEOUT = 2200
 
 function onPeriodic()
-   if enabled then
+    if enabled then
         if myo.getTimeMilliseconds() - enabledSince > ENABLED_TIMEOUT then
             enabled = false
             -- Vibrate once on lock
@@ -110,7 +115,10 @@ end
 
 function onActiveChange(isActive)
     if not isActive then
-        enabled = false
+        if enabled then
+            enabled = false
+            lock()
+        end
     end
 end
 
