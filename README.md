@@ -4,9 +4,9 @@ MyoScripts
 Various scripts for use with Myo
 
 
-##Instructions
+## Instructions
 
-###`xcode.lua`
+### `xcode.lua`
 
 - Build: Wave In
 - Run: Spread Fingers
@@ -14,7 +14,7 @@ Various scripts for use with Myo
 - Clean: Wave Out
 
 
-###`missionControl.lua`
+### `missionControl.lua`
 
 - Global
     - Spread Fingers to toggle Mission Control
@@ -31,7 +31,7 @@ Various scripts for use with Myo
     - Wave right to highlight the next window
 
 
-###`pandora.lua`
+### `pandora.lua`
 
 - Wave In to skip to the next song
 
